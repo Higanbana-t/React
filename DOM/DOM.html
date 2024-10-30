@@ -1,0 +1,76 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <li id="title">gh</li>
+    <p id="text">This is a paragraph.</p>
+    <ul id="list">1</ul>
+    <p id="remove-me">phan tu bi xoa</p>
+    <img src="hinh-anh-phong-canh-thien-nhien-dep-nhat-the-gioi.jpg"   id="image"></img>
+    <button id="btn"> click </button>
+    <li id="table-container"></li>
+    <li id="divcount"></li>
+    <p class="item">class</p>
+    <script>
+        document.getElementById('title').innerHTML="Hello, DOM!";
+        document.getElementById('text').style.color='red'
+        var list=document.createElement('li');
+        list.innerHTML="New item";
+        document.getElementById('list').appendChild(list);
+        document.getElementById('remove-me').parentNode.removeChild(document.getElementById('remove-me'));
+        document.getElementById('image').src='phong-canh-mua-thu-tuyet-dep-tai-nhat-ban.jpg'
+        document.getElementById('image').style.width='300px';
+        document.getElementById('image').style.height='200px';
+        document.getElementById('btn').onclick=function(){
+            alert('Clicked');
+        }
+
+        let paragraphs = document.querySelectorAll('p');
+        paragraphs.forEach(function(paragraph) {
+        paragraph.textContent = "Updated paragraph";
+        });
+
+
+        let table = document.createElement('table');
+        for (let i = 0; i < 3; i++) {
+
+            let row = document.createElement('tr');
+
+
+            for (let j = 0; j < 3; j++) {
+
+                let cell = document.createElement('td');
+                cell.textContent = `Hàng ${i + 1}, Cột ${j + 1}`;
+                console.log(cell);
+
+                row.appendChild(cell);
+            }
+
+        
+            table.appendChild(row);
+        }
+
+        let container = document.getElementById('table-container');
+        container.appendChild(table);
+        let divcount = document.querySelectorAll('div').length;
+        if (divcount===0){
+            divcount = 0;
+        }
+
+        let items = document.querySelectorAll('.item');
+
+
+        items.forEach(function(item) {
+            item.textContent = "Updated item";
+        });
+
+
+
+
+    </script>
+    
+</body>
+</html>
